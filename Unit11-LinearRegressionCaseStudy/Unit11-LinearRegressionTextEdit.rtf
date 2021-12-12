@@ -1,0 +1,31 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 What can you infer about the nature of these variables, as output by the info() method?
+\f1\b0 \
+\
+We can infer that all the variables are numeric, which is useful for statistical analysis.\
+\
+
+\f0\b Which variables might be suitable for regression analysis, and why? For those variables that aren't suitable for regression analysis, is there another type of statistical modeling for which they are suitable?
+\f1\b0 \
+\
+For a regression analysis, we want to use continuous variables, e.g. floats, rather than integers (whole numbers). The quality variable which is as integer would be better fitted for a proper classification analysis. \
+\
+The quality variable would, however, conduce to proper classification analysis. This is because, while the values for the quality variable are numeric, those numeric discrete values represent *categories*; and the prediction of category-placement is most often best done by classification algorithms. You saw the decision tree output by running a classification algorithm on the Titanic dataset on p.168 of Chapter 6 of *AoS*. For now, we'll continue with our regression analysis, and continue our search for a suitable dependent variable. \
+\
+
+\f0\b # Get a basic statistical summary of the variable 
+\f1\b0 \
+wine_data['quality'].describe()\
+\
+
+\f0\b # What do you notice from this summary? \
+
+\f1\b0 The majority of the wines have a quality close to 5-6 as the mean is 5.6 and there is little standard deviation (0.8).\
+\
+}
