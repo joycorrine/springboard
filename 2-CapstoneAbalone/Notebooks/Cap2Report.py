@@ -1,7 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
-import seaborn as sns
 import altair as alt
 
 st.image('/Users/joyopsvig/Documents/AbaloneShellsimage.jpg')
