@@ -2,6 +2,8 @@ import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import altair as alt
+import matplotlib.pyplot as plt 
+import seaborn as sns
 
 st.image('/Users/joyopsvig/Documents/AbaloneShellsimage.jpg')
 st.caption('Photo by Content Pixie on Unsplash')
