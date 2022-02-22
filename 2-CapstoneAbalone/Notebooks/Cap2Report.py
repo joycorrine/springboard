@@ -4,7 +4,11 @@ import pandas as pd
 import altair as alt
 import matplotlib.pyplot as plt 
 import seaborn as sns
+from PIL import Image
 
+image = Image.open('src/AbaloneShellsimage.jpg')
+
+st.image(image)
 st.caption('Photo by Content Pixie on Unsplash')
 
 st.markdown('''
@@ -48,7 +52,7 @@ with st.expander("Abalone Shell Features ", expanded=False):
     )
 
 
-abalone_data = pd.read_csv('/Users/joyopsvig/github/springboard/2-CapstoneAbalone/Notebooks/abaloneEDA_cleaned.csv')
+abalone_data = pd.read_csv('src/abaloneEDA_cleaned.csv')
 st.dataframe(abalone_data.head())
 
 st.markdown('''
