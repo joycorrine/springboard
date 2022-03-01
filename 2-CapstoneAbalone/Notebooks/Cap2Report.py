@@ -38,7 +38,7 @@ Here is an overview of the first few lines of data.  We have nine features and 4
 with st.expander("Abalone Shell Features ", expanded=False):
     st.write(
         """    
-- **Sex**: Male (M), Female (F), Infant (F
+- **Sex**: Male (M), Female (F), Infant (I)
 - **Length**: Longest shell measurement
 - **Diameter**: Perpendicular to length
 - **Height**: With meat in shell
@@ -119,7 +119,7 @@ diffdata = {'Abalone': [628, 678, 2333, 462, 2983, 3043],
         'Difference': [10.62, 10.34, 10.01, 0, 0, 0]
         
         }
-diff = pd.DataFrame(diffdata)
+diff = pd.DataFrame(diffdata, index_col=None)
 diff.set_index('Abalone') 
 
 st.dataframe(diff)
