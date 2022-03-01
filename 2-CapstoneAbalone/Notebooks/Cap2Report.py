@@ -89,27 +89,30 @@ st.markdown('''
 ### Building a Predictive Model
 
 For this dataset, I built multiple models in order to identify the best performing one at predicting the age of an 
-    abalone shell. I tested with multiple linear regression, ridge regression, random forest, gradient boost, 
+    abalone shell. I tested with multiple variate regression, random forest, gradient boost, 
     support vector regression, and K nearest neighbors.
 
 I used RMSE (root mean squared error) to evaluate and compare the effectiveness of my models, 
-    and ultimately, my multiple linear regression model performed the best with an RMSE of 2.06.
+    and ultimately, my multiple linear regression performed the best with an RMSE of 2.06.
 ''')
 
-data = {'Model': ['Multiple Linear Regression', 'Ridge Regression', 'Random Forest', 'Gradient Boost', 'SVR', 'KNN'], 
-        'RMSE': [2.061, 2.088, 2.100, 2.166, 2.162, 2.216]}
+data = {'Model': ['Multiple Variate Regression', 'Random Forest', 'Gradient Boost', 'SVR', 'KNN'], 
+        'RMSE': [2.0610, 2.1000, 2.1660, 2.1620, 2.2160]}
 rmsedf = pd.DataFrame(data)
 
 st.dataframe(rmsedf)
 
 st.markdown('''
-**While in the process of evaluating my multiple regression model, I made 
-an important discovery.**
+**While in the process of evaluating my multiple variate regression model, I made an important discovery.**
 
 I compared my model’s worst and best predictions (in terms of absolute difference 
     between the predicted value and real value) and found that my model performed 
     well at predicting ages around 12.5 and below, but did not perform as well 
-    predicting older abalones (20+ years old). 
+    predicting older abalones (20+ years old). Below you can see the real values (age) of the abalones
+    compared to the predicted values (age). I've also included a column to show the absolute
+    difference (Predicted Value - Real Value). I included the top three worst performing predictions,
+    and the top three best performing predictions. You can see that my multiple linear regression model
+    inaccurately predicted abalone 628 to be 11.87 year's old, when it actually is 22.5 year's old.
 
 ''')
 
@@ -125,7 +128,7 @@ diff.set_index('Abalone')
 st.dataframe(diff)
 
 st.markdown('''
-I decided to take a deeper dived into my multiple regression model to better understand where 
+I decided to take a deeper dived into my multiple variate model to better understand where 
     the cutoff was for my model’s performance. Below you can see how the RMSE score to 
     evaluate my model increases as the age threshold for my abalones increases.
 
@@ -133,6 +136,18 @@ I decided to take a deeper dived into my multiple regression model to better und
 
 st.image('/Users/joyopsvig/Desktop/Screen Shot 2022-02-21 at 5.32.00 PM.png')
 st.caption('Increasing the age threshold of the abalone data vs. RMSE')
+
+st.markdown('''
+## Updating a New Model
+
+Instead of using a linear-based model, I attempted improve one of my non-linear based models
+   because I knew my data was non-linear -- the abalones' height and weight peaked close to 12-15 
+   year's old, but as they got older, their measurements (weights and height) decreased.
+   I decided to focus on my random forest model. Using Scikit-Learn’s RandomizedSearchCV and GridSearchCV, I found the
+   best parameters for my Random Forest model, but ultimately, the model still did not improve or outperform
+   my multiple variate model.  
+''')
+
 
 st.markdown('''
 ### Conclusion
